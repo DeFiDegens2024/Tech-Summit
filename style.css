@@ -1,0 +1,1202 @@
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url('images/backgroun.jpg');
+    /* Path to your background image */
+    background-size: cover;
+    /* Ensures the image covers the entire viewport */
+    background-position: center;
+    /* Centers the image */
+    background-repeat: no-repeat;
+    /* Prevents the image from repeating */
+    height: 100vh;
+    /* Set body height to 100% of the viewport height */
+    overflow: auto;
+    /* Allow scrolling */
+    animation: moveBackground 20s linear infinite;
+    /* Apply animation */
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: -200% -200%;
+        /* Adjust based on your desired effect */
+    }
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Optional: to make the content stand out */
+}
+.timer-ribbon {
+    background-image: linear-gradient(to right, #471c9b, #330099);
+    color: white;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px; /* Add some padding for better spacing on smaller screens */
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: nowrap; /* Prevent items from wrapping to the next line */
+    overflow-x: auto; /* Allow horizontal scrolling if items overflow */
+}
+
+.countdown-item {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    min-width: 80px;
+    text-align: center; /* Center text inside the countdown items */
+    flex: 1 1 auto; /* Allow flexibility for items to grow/shrink */
+}
+
+.countdown-item span:first-child {
+    display: block;
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+/* Media query for small screens */
+@media (max-width: 600px) {
+    .countdown {
+        gap: 10px; /* Reduce gap for smaller screens */
+    }
+
+    .countdown-item {
+        padding: 15px; /* Reduce padding inside items */
+    }
+
+    .countdown-item span:first-child {
+        font-size: 1.5em; /* Reduce font size for smaller screens */
+    }
+}
+
+/* Additional media query for very small screens */
+@media (max-width: 400px) {
+    .timer-ribbon {
+        padding: 30px 0; /* Reduce padding for very small screens */
+    }
+
+    .countdown-item {
+        padding: 10px; /* Further reduce padding inside items */
+    }
+
+    .countdown-item span:first-child {
+        font-size: 1.2em; /* Further reduce font size for very small screens */
+    }
+}
+/* Layout for conference section */
+.conferences {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px; /* Add gap between items */
+}
+
+/* Styling for conference cards */
+.conference-card {
+    margin: 20px;
+    position: relative;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: auto; /* Set a max-width for better layout */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition effects */
+    background-color: white; /* Add background color for better readability */
+    object-fit: contain;
+}
+
+.conference-card:hover {
+    transform: scale(1.05); /* Slightly enlarge card on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+/* Styling for background images */
+.background-image {
+    width: auto;
+    height: auto; /* Adjust as needed */
+    object-fit: contain;
+}
+
+/* Card content */
+.card-content {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card-description {
+    font-size: 1em;
+    color: #666;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .conference-card {
+        max-width: 100%;
+    }
+
+    .background-image {
+        height: 150px; /* Adjust height for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .conferences {
+        padding: 10px;
+    }
+
+    .conference-card {
+        margin: 10px;
+        border-radius: 5px; /* Reduce border radius for smaller screens */
+    }
+
+    .background-image {
+        height: 120px; /* Further adjust height for very small screens */
+    }
+
+    .card-content {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .card-title {
+        font-size: 1.2em;
+    }
+
+    .card-description {
+        font-size: 0.9em;
+    }
+}
+/* Navbar setup */
+.unique-navbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding: 15px 10px;
+    transition: background-color 0.3s ease, height 0.3s ease;
+     background-color:white;
+    height: 100px;
+    margin: 0;
+    justify-content: center;
+}
+
+/* Navbar color change on scroll */
+.unique-navbar.scrolled {
+    background-color:white;
+}
+
+/* Container setup */
+.unique-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-left: 20px; /* 20px gap from the left margin */
+    padding-right: 30px;
+}
+
+/* Logo image setup */
+.unique-logo-img {
+    width: 230px;
+    height: auto;
+    transition: opacity 0.3s ease;
+}
+/* Menu toggle button setup (for mobile view) */
+.unique-menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+/* Navbar links setup */
+.unique-nav-links {
+    display: flex;
+    align-items: center;
+    text-align: center; /* Center the text */
+}
+
+/* Unordered list setup within navbar */
+.unique-nav-links ul {
+    list-style: none;
+    display: flex;
+    margin-right: 20px;
+    padding: 0;
+}
+
+/* List items setup within navbar */
+.unique-nav-links ul li {
+    margin-left: 20px;
+    height: auto;
+}
+
+/* Link styling */
+.unique-nav-links ul li a {
+    text-decoration: none;
+    color: white; /* Changed text color to white */
+    font-weight: 600;
+    transition: color 0.3s ease;
+    font-size: 18px;
+    align-items: center; 
+}
+
+.unique-nav-links ul li a:hover {
+    color: #147EFF; /* Change color on hover */
+}
+
+.unique-navbar.scrolled {
+    background-color:white;
+}
+
+/* Responsive design for screens smaller than 1200px */
+@media (max-width: 1200px) {
+    .unique-logo-img {
+        width: 250px;
+    }
+
+    .unique-nav-links ul li {
+        margin-left: 15px;
+    }
+
+    .unique-nav-links ul li a {
+        font-size: 14px;
+    }
+
+    .unique-ticket-box {
+        padding: 8px 16px;
+    }
+}
+
+/* Responsive design for screens smaller than 992px */
+@media (max-width: 992px) {
+    .unique-logo-img {
+        width: 200px;
+    }
+
+    .unique-nav-links ul li {
+        margin-left: 10px;
+    }
+
+    .unique-nav-links ul li a {
+        font-size: 12px;
+    }
+
+    .unique-ticket-box {
+        padding: 6px 12px;
+    }
+}
+/* Link styling */
+.unique-nav-links ul li a {
+    text-decoration: none;
+    color: black; /* Changed text color to white */
+    font-weight: 600;
+    transition: color 0.3s ease;
+    font-size: 18px;
+    text-align: center; /* Center the text */
+}
+
+
+/* Responsive design for screens smaller than 768px */
+@media (max-width: 768px) {
+    .unique-menu-toggle {
+        display: block;
+    }
+
+    .unique-nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .unique-nav-links ul {
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .unique-nav-links ul li {
+        margin: 10px 0;
+        align-items: center;
+    }
+
+    .unique-nav-links ul li a {
+        font-size: 18px;
+        color: black; /* Default color for mobile */
+    }
+
+    .unique-nav-links ul li a:hover {
+        color: #147EFF; /* Change color on hover */
+    }
+
+    .unique-ticket-box {
+        margin: 10px 0;
+        color: white; /* Default color for mobile */
+    }
+
+    .unique-ticket-box:hover {
+        background-color: #a020a0; /* Change color on hover */
+    }
+
+    .unique-nav-links.active {
+        display: flex;
+    }
+}
+
+/* Responsive design for screens smaller than 576px */
+@media (max-width: 576px) {
+    .unique-logo-img {
+        width: 200px;
+    }
+
+    .unique-nav-links ul li a {
+        font-size: 16px;
+    }
+
+    .unique-ticket-box {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+}
+.conferences {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the conference cards horizontally */
+}
+/* Styling for conference cards */
+.conference-card {
+    flex: 0 0 auto; /* Allow flexibility but don't allow shrinking */
+    margin: 0 0 40px 0; /* Adjust margin as needed */
+    width: 500px; /* Constant width */
+    height: 1000px; /* Adjust height to make it rectangular along the y-axis */
+    position: relative;
+    overflow: hidden; /* Ensure images don't overflow */
+    border-radius: 2px; /* Add some rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    padding: 30px;
+    margin-left: 70px;
+}
+
+.conference-title {
+    margin-top: 30px;
+    font-size: 3.0rem;
+    font-weight: bold;
+    margin-bottom: 40px; /* Adjust spacing as needed */
+   text-align:center;
+}
+
+.background-image,
+.background-gif {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px; /* Match parent's border radius */
+    object-fit: cover;
+}
+
+/* Responsive layout adjustments */
+@media screen and (max-width: 1200px) {
+    .conference-card {
+        width: calc(50% - 20px); /* Adjust for two cards in a row */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .conference-card {
+        width: calc(50% - 20px); /* Adjust for two cards in a row */
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .conference-card {
+        width: calc(100% - 20px); /* Full width on smaller screens */
+    }
+}
+/* General styles for the hero section */
+header.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* Full viewport height */
+    overflow: hidden;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin:0px;
+}
+.background-gif {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+/* Ensure the background GIF is below the foreground image */
+.background-gif {
+    z-index: 1;
+}
+/* Media queries for responsive design */
+@media (max-width: 1024px) {
+
+    .background-gif {
+        object-fit: cover;
+        /* Ensures the images cover the container, maintaining aspect ratio */
+    }
+}
+
+@media (max-width: 768px) {
+
+    .background-gif {
+        content: url('images/1.png');
+        /* Small screen background GIF */
+    }
+}
+
+@media (max-width: 480px) {
+
+    .background-gif {
+        object-fit: cover;
+        /* Ensures the images cover the container, maintaining aspect ratio */
+    }
+}
+
+/* Container styles */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    /* Hide overflow content */
+}
+
+/* Content wrapper styles */
+.content-wrapper {
+    flex: 1;
+    padding: 40px;
+    /* Padding for content */
+}
+
+.about {
+    padding-right: 20px;
+}
+
+.about h2 {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #666;
+}
+
+.about a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.about a:hover {
+    text-decoration: underline;
+}
+
+/* Image container styles */
+.image-container {
+    flex: 1;
+    text-align: center;
+    transition: transform 0.3s ease;
+    /* Add transition for hover effect */
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0;
+}
+
+/* Hover effect for image container */
+.image-container:hover {
+    transform: scale(1.05);
+    /* Scale up on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about {
+        padding-right: 0;
+        text-align: center;
+    }
+
+
+}
+/* Photo Gallery */
+#photo-gallery {
+  margin-top: 0;
+  padding: 20px; /* Add padding for better spacing */
+    background-image: linear-gradient(to right, #471c9b,  #330099);
+  border-radius: 0px; /* Add some border radius for a rounded look */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  white-space: nowrap; /* Prevent items from wrapping */
+}
+
+.carousel-inner {
+  display: flex; /* Use flexbox for the inner container */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  scroll-snap-type: x mandatory; /* Enable snap scrolling */
+}
+
+.carousel-item {
+  flex: 0 0 auto; /* Ensure items don't grow or shrink */
+  width: calc(100% / 3); /* Displaying three images per row */
+  padding: 10px; /* Add padding around items */
+  scroll-snap-align: start; /* Snap items to the start of the container */
+}
+
+.carousel-item img {
+  width: 100%; /* Make images fill the entire item width */
+  height: auto;
+  border-radius: 0px; /* Add border radius to images */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow to images */
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.carousel-item img:hover {
+  transform: scale(1.05); /* Slightly enlarge image on hover */
+}
+
+/* Responsive Layout */
+@media screen and (max-width: 768px) {
+  .carousel-item {
+    width: calc(100% / 2); /* Displaying two images per row on smaller screens */
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .carousel-item {
+    width: 100%; /* Displaying one image per row on smaller screens */
+  }
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  /* z-index: 999; */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+  max-height: 80%;
+}
+
+.close {
+  color: white;
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  font-size: 1.5em;
+  font-weight: bold;
+  cursor: pointer;
+}
+#videos {
+      background-image: linear-gradient(to right, #471c9b,  #330099);
+    /* Path to your background image */
+    color: black;
+    /* White text color */
+    padding: 80px 0;
+    /* Adjust padding as needed */
+    text-align: center;
+    font-weight: bold;
+    /* Bold text */
+}
+
+.container7,
+.video-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.section-title {
+    font-size: 2.5em;
+    /* Increased font size for heading */
+    margin-bottom: 40px;
+    color: white;
+    /* White text color */
+    font-weight: bold;
+    /* Bold text */
+
+}
+
+.speaker-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Center align speaker cards */
+    gap: 20px;
+    /* Add gap between cards */
+}
+
+.speaker-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 0px;
+    padding: 20px;
+    max-width: 300px;
+    margin: auto;
+}
+
+.speaker-card img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 5px solid black;
+}
+
+.speaker-card h3,
+.speaker-card p {
+    color:black;
+    text-align: center;
+    margin: 0;
+}
+
+.speaker-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.speaker-card p {
+    font-size: 1em;
+}
+
+@media (max-width: 768px) {
+    .speaker-card {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    .speaker-card h3 {
+        font-size: 1.2em;
+    }
+
+    .speaker-card p {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .speakers h2,
+    .section-title {
+        font-size: 2em;
+        /* Decrease font size for smaller screens */
+    }
+}
+
+/* Video Section */
+.video-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    /* Center the container horizontally */
+    padding: 40px 20px;
+    /* Add some top and bottom padding */
+    justify-content: center;
+    /* Center grid items horizontally */
+}
+
+/* Video Wrapper */
+.video-container div {
+    position: relative;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+}
+
+/* Hover Effect */
+.video-container div:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Responsive Layout */
+@media screen and (max-width: 768px) {
+    .video-container {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    #videos,
+    #speakers {
+        padding: 40px 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .video-container {
+        padding: 0 10px;
+    }
+}
+
+/* Sponsor Section */
+#sponsor {
+    /* Path to your background image */
+    color: white;
+    /* White text color */
+    padding: 80px 0;
+    /* Adjust padding as needed */
+    text-align: center;
+    font-weight: bold;
+    /* Bold text */
+      background-image: linear-gradient(to right, #471c9b,  #330099);
+}
+
+.container8 {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container8 h2 {
+    color: white;
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.sponsor-images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    overflow-x: auto;
+    /* Enable horizontal scrolling */
+    padding: 20px;
+}
+
+.sponsor-images img {
+    /* /* max-width: 440px; */
+    height: 130px;
+    flex-shrink: 0;
+    /* Prevent images from shrinking */
+}
+
+/* Hide scrollbar for Webkit browsers */
+.sponsor-images::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.sponsor-images {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+@keyframes bubble {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(100px, 100px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.footer {
+    background-color: whitesmoke;
+    padding: 40px 0;
+    color: #000000;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-left,
+.footer-middle,
+.footer-right {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-left .footer-icon {
+    margin: 0 10px;
+    color: gray;
+    /* Icons color set to gray */
+}
+
+.footer-left .footer-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    transition: fill 0.3s ease;
+}
+
+.footer-left .footer-icon:hover svg {
+    fill: blue;
+    /* Icons color set to blue on hover */
+}
+
+.footer-middle ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.footer-middle li {
+    display: inline;
+}
+
+.footer-middle a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #000000;
+}
+
+.footer-middle a:hover {
+    text-decoration: underline;
+}
+
+.footer-right p {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .footer-left,
+    .footer-middle,
+    .footer-right {
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    .footer-middle a {
+        margin: 5px 0;
+    }
+}
+
+.grid-container {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 200px);
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grid-container div {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.grid-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 200px);
+    }
+}
+
+/* Responsive layout for very small screens */
+@media (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(9, 200px);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 200px);
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(8, 200px);
+    }
+}
+
+/* .img1 {
+  grid-area: I1;
+
+}
+
+.img2 {
+  grid-area: I2;
+}
+.img3 {
+  grid-area: I3;
+}
+.img4 {
+  grid-area: I4;
+}
+.img5 {
+  grid-area: I5;
+}
+.img6 {
+  grid-area: I6;
+}
+.img7 {
+  grid-area: I7;
+  padding-top: 6px;
+} 
+
+ @media (max-width: 768px) {
+  .grid-container {
+    grid-template-areas:
+      "I1"
+      "I1"
+      "I2"
+      "I3"
+      "I4"
+      "I5"
+      "I6"
+      "I7";
+  }
+}
+
+/* Responsive layout for very small screens */
+/* @media (max-width: 480px) {
+  .grid-container {
+    grid-template-areas:
+      "I1"
+      "I2"
+      "I3"
+      "I4"
+      "I5"
+      "I6"
+      "I7";
+  }
+}  */
+/* newsletter */
+#mc_embed_shell {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+}
+
+#mc_embed_signup {
+    padding: 40px;
+    border-radius: 0px;
+    max-width: 800px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#mc_embed_signup h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+#mc_embed_signup .mc-field-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 15px auto;
+}
+
+#mc_embed_signup label {
+    display: none;
+}
+
+#mc_embed_signup input[type="email"] {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    width: 70%;
+    font-size: 1rem;
+    color: #000000;
+    margin: 0;
+}
+
+#mc_embed_signup .button {
+    padding: 15px;
+    background-color: #b427b4;
+    color: #ffffff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 30%;
+    text-align: center;
+}
+
+#mc_embed_signup .button:hover {
+    background-color: #a720a7;
+}
+
+@media (max-width: 600px) {
+    #mc_embed_signup {
+        padding: 20px;
+    }
+
+    #mc_embed_signup h2 {
+        font-size: 1.5rem;
+    }
+
+    #mc_embed_signup .mc-field-group {
+        flex-direction: column;
+    }
+
+    #mc_embed_signup input[type="email"] {
+        border-radius: 5px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #mc_embed_signup .button {
+        border-radius: 5px;
+        width: 100%;
+    }
+}
+
+#mc_embed_signup input[type="email"] {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    width: 70%;
+    font-size: 16px;
+}
+
+#mc_embed_signup input[type="submit"] {
+    padding: 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    width: 30%;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#mc_embed_signup input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+
+    #mc_embed_signup input[type="email"],
+    #mc_embed_signup input[type="submit"] {
+        width: 100%;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+}
